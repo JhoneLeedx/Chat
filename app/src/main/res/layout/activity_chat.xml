@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgWhite">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorBg"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:titleTextColor="@color/white"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@drawable/linear_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/img_yuyin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yuyin_gray" />
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/add_gray" />
+
+        <EditText
+            android:id="@+id/et_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_bg" />
+
+        <ImageButton
+            android:id="@+id/imbtn_send"
+            android:layout_width="60dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn_bg"
+            android:src="@drawable/send" />
+    </LinearLayout>
+</FrameLayout>
