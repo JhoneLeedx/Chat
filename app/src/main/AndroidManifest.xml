@@ -33,10 +33,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ChatActivity" />
-        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.LoginActivity"
+            android:launchMode="singleInstance"/>
         <activity android:name=".ui.PersonMsgActivity" />
         <activity android:name=".MainActivity" />
-
+        <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.SetPassActivity" />
+        <activity android:name=".ui.RegistForPsActivity" />
 
 
         <!--  消息收发service -->
