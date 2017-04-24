@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jhonelee.chat.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.jhonelee.chat.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorBg"
-        app:titleTextColor="@color/white"/>
+        app:titleTextColor="@color/white" />
 
-    <Button
-        android:id="@+id/btn"
+    <LinearLayout
+        android:id="@+id/linearCenter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rg_end"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical" />
+
+    <RadioGroup
+        android:id="@+id/rg_end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="跳转"/>
-    <Button
-        android:id="@+id/btn_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="跳转"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="消息" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="联系人" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="我" />
+    </RadioGroup>
+</RelativeLayout>

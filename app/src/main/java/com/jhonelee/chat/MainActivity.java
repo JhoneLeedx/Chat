@@ -1,18 +1,12 @@
 package com.jhonelee.chat;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Toast;
 
-import com.jhonelee.chat.ui.ChatActivity;
-import com.jhonelee.chat.ui.PersonMsgActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    @OnClick({R.id.btn,R.id.btn_1})
+   /* @OnClick({R.id.btn,R.id.btn_1})
     public void Click(View v) {
                 Intent in = new Intent();
         switch (v.getId()){
@@ -48,6 +42,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //startActivity(new Intent(MainActivity.this, ChatActivity.class));
-    }
+    }*/
 
 }
