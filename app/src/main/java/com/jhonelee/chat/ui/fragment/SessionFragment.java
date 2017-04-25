@@ -1,5 +1,6 @@
 package com.jhonelee.chat.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.jhonelee.chat.MainActivity;
 import com.jhonelee.chat.R;
+import com.jhonelee.chat.ui.AddFriendActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,6 +62,7 @@ public class SessionFragment extends Fragment {
 
         if(item.getItemId()==R.id.nav_add){
             Toast.makeText(getContext(), "add被点击", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getContext(), AddFriendActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

@@ -4,13 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorBg"
-    android:theme="@style/AppTheme.AppBarOverlay"
-    app:titleTextColor="@color/white"
-    android:layout_width="match_parent"/>
+    <include layout="@layout/toolbar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
