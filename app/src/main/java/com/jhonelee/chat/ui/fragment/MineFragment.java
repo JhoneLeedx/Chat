@@ -35,6 +35,8 @@ public class MineFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
         unbinder = ButterKnife.bind(this, view);
+        toolbar.setTitle("个人信息");
+        toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         return view;
 
     }

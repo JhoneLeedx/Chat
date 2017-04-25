@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.jhonelee.chat.MainActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorBg"
-        app:titleTextColor="@color/white" />
-
     <LinearLayout
         android:id="@+id/linearCenter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/rg_end"
-        android:layout_below="@+id/toolbar"
         android:orientation="vertical" />
-
     <RadioGroup
         android:id="@+id/rg_end"
         android:layout_width="match_parent"
@@ -30,6 +19,7 @@
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/rb_msg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -38,14 +28,17 @@
             android:text="消息" />
 
         <RadioButton
+            android:id="@+id/rb_contract"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
+            android:checked="true"
             android:gravity="center"
             android:text="联系人" />
 
         <RadioButton
+            android:id="@+id/rb_mine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

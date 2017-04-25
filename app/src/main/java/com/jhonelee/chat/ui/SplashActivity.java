@@ -7,10 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.jhonelee.chat.R;
-import com.tencent.TIMMessage;
-import com.tencent.TIMMessageListener;
 
-import java.util.List;
 
 
 /**
