@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_shap"
         android:orientation="horizontal">
 
         <RadioButton
@@ -24,7 +25,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
+            android:textColor="@color/selector_color"
             android:gravity="center"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/msg_pic"
+            android:textSize="12sp"
             android:text="消息" />
 
         <RadioButton
@@ -34,6 +39,10 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/contact_pic"
+            android:textSize="12sp"
+            android:textColor="@color/selector_color"
             android:gravity="center"
             android:text="联系人" />
 
@@ -43,6 +52,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/me_pic"
+            android:textSize="12sp"
+            android:textColor="@color/selector_color"
             android:gravity="center"
             android:text="我" />
     </RadioGroup>

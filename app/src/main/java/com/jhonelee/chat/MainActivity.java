@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     public void Click(View v) {
         switch (v.getId()){
             case R.id.rb_mine:
-                Toast.makeText(this, "btn被点击了", Toast.LENGTH_SHORT).show();
                 if (mineFragment==null){
                     mineFragment = new MineFragment();
                 }
@@ -51,20 +50,16 @@ public class MainActivity extends AppCompatActivity {
                     sessionFragment = new SessionFragment();
                 }
                 switchContent(isFragment,sessionFragment);
-                Toast.makeText(this, "btn1被点击了", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.rb_contract:
                 if (contactFragment==null){
                     contactFragment = new ContactsFragment();
                 }
                 switchContent(isFragment,contactFragment);
-                Toast.makeText(this, "btn1被点击了", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
         }
-
-        //startActivity(new Intent(MainActivity.this, ChatActivity.class));
     }
     public void switchContent(Fragment from, Fragment to) {
         if (isFragment != to) {

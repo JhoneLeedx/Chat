@@ -16,6 +16,9 @@ import android.widget.LinearLayout;
 import com.jhonelee.chat.MainActivity;
 import com.jhonelee.chat.R;
 import com.jhonelee.chat.util.Const;
+import com.tencent.TIMCallBack;
+import com.tencent.TIMManager;
+import com.tencent.TIMUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -87,7 +90,24 @@ public class LoginActivity extends AppCompatActivity {
     private TLSPwdLoginListener loginListener = new TLSPwdLoginListener() {
         @Override
         public void OnPwdLoginSuccess(TLSUserInfo tlsUserInfo) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+
+            TIMUser user = new TIMUser();
+            user.setAppIdAt3rd(Const.SDK_APPID+"");
+            user.setIdentifier(tlsUserInfo.identifier);
+            user.setAccountType(tlsUserInfo.accountType+"");
+            //登录到聊天系统
+            TIMManager.getInstance().login(Integer.parseInt(String.valueOf(Const.SDK_APPID)), user, Const.PUBLIC_KEY, new TIMCallBack() {
+                @Override
+                public void onError(int i, String s) {
+                    Log.d(TAG,s);
+                    Log.d(TAG,""+i);
+                }
+                @Override
+                public void onSuccess() {
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                }
+            });
         }
 
         @Override

@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.jhonelee.chat.MainActivity;
 import com.jhonelee.chat.R;
@@ -56,6 +57,10 @@ public class SessionFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==R.id.nav_add){
+            Toast.makeText(getContext(), "add被点击", Toast.LENGTH_SHORT).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 

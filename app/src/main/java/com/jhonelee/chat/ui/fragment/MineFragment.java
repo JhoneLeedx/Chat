@@ -5,15 +5,20 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.jhonelee.chat.MainActivity;
 import com.jhonelee.chat.R;
+import com.tencent.TIMFriendshipManager;
+import com.tencent.TIMUserProfile;
+import com.tencent.TIMValueCallBack;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +34,8 @@ public class MineFragment extends Fragment {
     Toolbar toolbar;
     Unbinder unbinder;
 
+    private String TAG = "MineFragment";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,6 +48,29 @@ public class MineFragment extends Fragment {
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        initMine();
+    }
+
+    private void initMine(){
+        TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserProfile>() {
+            @Override
+            public void onError(int i, String s) {
+                //错误码code和错误描述desc，可用于定位请求失败原因
+                //错误码code列表请参见错误码表
+                Log.e(TAG, "getSelfProfile failed: " + i + " desc");
+            }
+
+            @Override
+            public void onSuccess(TIMUserProfile timUserProfile) {
+                Log.e(TAG, "getSelfProfile succ");
+                Log.e(TAG, "identifier: " + timUserProfile.getIdentifier() + " nickName: " + timUserProfile.getNickName()
+                        + " remark: " + timUserProfile.getRemark() + " allow: " + timUserProfile.getAllowType());
+            }
+        });
+    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -57,6 +87,9 @@ public class MineFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.nav_setting){
+            Toast.makeText(getContext(), "setting被点击", Toast.LENGTH_SHORT).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 
