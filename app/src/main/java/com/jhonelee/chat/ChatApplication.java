@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.jhonelee.chat.util.Foreground;
+import com.tencent.TIMBaseApplication;
 import com.tencent.TIMGroupReceiveMessageOpt;
 import com.tencent.TIMManager;
 import com.tencent.TIMMessage;
@@ -21,15 +22,15 @@ import java.util.List;
  */
 
 
-public class ChatApplication extends Application implements TIMMessageListener{
+public class ChatApplication extends TIMBaseApplication implements TIMMessageListener{
 
     private String TAG = "ChatApplication";
     private static Context context;
     @Override
     public void onCreate() {
         super.onCreate();
-        TIMManager.getInstance().addMessageListener(this);
         TIMManager.getInstance().init(this);
+        TIMManager.getInstance().addMessageListener(this);
         Foreground.init(this);
         context = getApplicationContext();
         if(MsfSdkUtils.isMainProcess(this)) {

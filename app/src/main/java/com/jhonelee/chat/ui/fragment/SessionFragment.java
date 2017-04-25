@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 import com.jhonelee.chat.MainActivity;
 import com.jhonelee.chat.R;
 import com.jhonelee.chat.ui.AddFriendActivity;
+import com.tencent.TIMConversation;
+import com.tencent.TIMManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +34,7 @@ public class SessionFragment extends Fragment {
     Toolbar toolbar;
     Unbinder unbinder;
 
+    private String TAG = "SessionFragment";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,6 +47,23 @@ public class SessionFragment extends Fragment {
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        initSession();
+    }
+
+    private void initSession(){
+        //获取会话个数
+        long cnt = TIMManager.getInstance().getConversationCount();
+        //遍历会话列表
+        for(long i = 0; i < cnt; ++i) {
+            //根据索引获取会话
+            TIMConversation conversation =
+                    TIMManager.getInstance().getConversationByIndex(i);
+            Log.d(TAG, "get conversation. type: " + conversation.getType());
+        }
+    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
