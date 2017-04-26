@@ -8,17 +8,25 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.jhonelee.chat.MainActivity;
 import com.jhonelee.chat.R;
 import com.jhonelee.chat.util.Const;
 import com.tencent.TIMCallBack;
+import com.tencent.TIMFriendshipManager;
 import com.tencent.TIMManager;
+import com.tencent.TIMMessage;
+import com.tencent.TIMMessageListener;
 import com.tencent.TIMUser;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +41,7 @@ import tencent.tls.platform.TLSUserInfo;
  * Created by JhoneLee on 2017/4/20.
  */
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements TextView.OnEditorActionListener{
 
 
     @BindView(R.id.et_name)
@@ -44,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     Toolbar toolbar;
     @BindView(R.id.et_code)
     EditText etCode;
+    @BindView(R.id.btn_login)
+    Button btnLogin;
     @BindView(R.id.btn_code)
     Button btnCode;
     @BindView(R.id.code_linear)
@@ -60,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         codeLinear.setVisibility(View.GONE);
         loginHelper = TLSLoginHelper.getInstance().init(getApplicationContext(), Const.SDK_APPID, Const.ACCOUNT_TYPE, Const.APPVER);
+        etPasswd.setOnEditorActionListener(this);
     }
 
     @OnClick({R.id.btn_login, R.id.btn_register})
@@ -105,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onSuccess() {
+                    TIMManager.getInstance().addMessageListener(messageListener);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
             });
@@ -149,7 +161,15 @@ public class LoginActivity extends AppCompatActivity {
             btnCode.setText(new String(bytes));
         }
     };
-    /*
-*/
+    private TIMMessageListener messageListener = new TIMMessageListener() {
+        @Override
+        public boolean onNewMessages(List<TIMMessage> list) {
+            return false;
+        }
+    };
 
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        return false;
+    }
 }

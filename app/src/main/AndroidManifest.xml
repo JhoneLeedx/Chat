@@ -41,6 +41,8 @@
         <activity android:name=".ui.SetPassActivity" />
         <activity android:name=".ui.RegistForPsActivity" />
         <activity android:name=".ui.AddFriendActivity" />
+        <activity android:name=".ui.pscenter.SignatureActivity" />
+        <activity android:name=".ui.pscenter.NickNameActivity" />
 
 
         <!--  消息收发service -->

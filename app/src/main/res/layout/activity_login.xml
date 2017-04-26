@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,62 +8,80 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp"
-        android:padding="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
+
         <EditText
             android:id="@+id/et_name"
-            android:hint="账号"
-            android:textColorHint="@android:color/darker_gray"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@drawable/edit_bg"/>
+            android:background="@drawable/edit_bg"
+            android:hint="账号"
+            android:singleLine="true"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:textColorHint="@android:color/darker_gray" />
+
         <EditText
             android:id="@+id/et_passwd"
-            android:hint="密码"
-            android:textColorHint="@android:color/darker_gray"
-            android:layout_marginTop="20dp"
-            android:password="true"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@drawable/edit_bg"/>
+            android:layout_marginTop="20dp"
+            android:inputType="text"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:background="@drawable/edit_bg"
+            android:hint="密码"
+            android:password="true"
+            android:textColorHint="@android:color/darker_gray" />
+
         <LinearLayout
             android:id="@+id/code_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/et_code"
-                android:hint="验证码"
-                android:textColorHint="@android:color/darker_gray"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@drawable/edit_bg"/>
+                android:inputType="text"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:background="@drawable/edit_bg"
+                android:hint="验证码"
+                android:textColorHint="@android:color/darker_gray" />
+
             <Button
                 android:id="@+id/btn_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="获取验证码"/>
+                android:text="获取验证码" />
         </LinearLayout>
+
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="登录"
             android:layout_marginTop="40dp"
+            android:background="@drawable/btn_bg_01"
+            android:text="登录"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:background="@drawable/btn_bg_01"/>
+            android:textColor="@color/white" />
+
         <Button
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_bg_02"
             android:text="注册"
             android:textAllCaps="false"
-            android:layout_marginTop="20dp"
-            android:textColor="@android:color/darker_gray"
-            android:background="@drawable/btn_bg_02"/>
+            android:textColor="@android:color/darker_gray" />
     </LinearLayout>
+
+    <include layout="@layout/toolbar"/>
 </LinearLayout>

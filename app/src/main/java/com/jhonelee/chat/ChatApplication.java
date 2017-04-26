@@ -30,7 +30,7 @@ public class ChatApplication extends TIMBaseApplication implements TIMMessageLis
     public void onCreate() {
         super.onCreate();
         TIMManager.getInstance().init(this);
-        TIMManager.getInstance().addMessageListener(this);
+
         Foreground.init(this);
         context = getApplicationContext();
         if(MsfSdkUtils.isMainProcess(this)) {

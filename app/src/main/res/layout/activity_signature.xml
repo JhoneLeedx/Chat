@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/toolbar"/>
+    <com.jhonelee.chat.weidget.EditsView
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:imeOptions="actionDone"
+        android:gravity="top"
+        android:lines="5"
+        android:inputType="textMultiLine"
+        android:background="@drawable/edit_bg"/>
+</LinearLayout>
