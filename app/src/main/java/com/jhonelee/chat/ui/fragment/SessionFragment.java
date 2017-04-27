@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.jhonelee.chat.MainActivity;
 import com.jhonelee.chat.R;
-import com.jhonelee.chat.ui.AddFriendActivity;
+import com.jhonelee.chat.ui.ContactFriendActivity;
 import com.tencent.TIMConversation;
 import com.tencent.TIMManager;
 
@@ -83,7 +83,7 @@ public class SessionFragment extends Fragment {
 
         if(item.getItemId()==R.id.nav_add){
             Toast.makeText(getContext(), "add被点击", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getContext(), AddFriendActivity.class));
+            startActivity(new Intent(getContext(), ContactFriendActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ChatActivity" />
+        <activity android:name=".ui.chat.ChatActivity" />
         <activity android:name=".ui.LoginActivity"
             android:launchMode="singleInstance"/>
         <activity android:name=".ui.PersonMsgActivity" />
@@ -40,7 +40,7 @@
         <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.SetPassActivity" />
         <activity android:name=".ui.RegistForPsActivity" />
-        <activity android:name=".ui.AddFriendActivity" />
+        <activity android:name=".ui.ContactFriendActivity" />
         <activity android:name=".ui.pscenter.SignatureActivity" />
         <activity android:name=".ui.pscenter.NickNameActivity" />
 

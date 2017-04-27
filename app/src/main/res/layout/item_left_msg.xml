@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp">
+        <com.jhonelee.chat.weidget.CircleImageView
+            android:id="@+id/leftAvatar"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/test"
+            android:layout_alignParentLeft="true"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/leftAvatar"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/sender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="3dp"
+                android:textSize="12sp"
+                android:text="name"/>
+            <TextView
+                android:id="@+id/leftMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="5dp"
+                android:gravity="center"
+                android:background="@drawable/bg_bubble_gray"/>
+        </LinearLayout>
+</RelativeLayout>

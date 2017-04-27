@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jhonelee.chat.R;
+import com.jhonelee.chat.listener.ContactListener;
 import com.jhonelee.chat.weidget.CircleImageView;
 import com.tencent.TIMUserProfile;
 
@@ -26,6 +27,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
 
     private Context mContext;
     private List<TIMUserProfile> mList;
+    private ContactListener listener;
+
+    public ContactAdapter(Context mContext, List<TIMUserProfile> mList, ContactListener listener) {
+        this.mContext = mContext;
+        this.mList = mList;
+        this.listener = listener;
+    }
 
     public ContactAdapter(Context mContext, List<TIMUserProfile> mList) {
         this.mContext = mContext;
@@ -40,10 +48,18 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
 
     @Override
     public void onBindViewHolder(ContactHolder holder, int position) {
-        TIMUserProfile userProfile = mList.get(position);
+        final TIMUserProfile userProfile = mList.get(position);
         Glide.with(mContext).load(userProfile.getFaceUrl()).into(holder.image);
         holder.textSignname.setText(userProfile.getSelfSignature());
         holder.tvNickname.setText(userProfile.getNickName());
+        if (listener!=null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.Contact(userProfile);
+                }
+            });
+        }
     }
 
     @Override
