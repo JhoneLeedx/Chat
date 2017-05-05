@@ -13,7 +13,7 @@
         android:layout_height="35dp"
         android:src="@drawable/test"
         android:layout_alignParentRight="true"/>
-    <RelativeLayout
+    <TextView
         android:id="@+id/rightMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

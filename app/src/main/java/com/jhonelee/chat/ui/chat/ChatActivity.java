@@ -98,6 +98,7 @@ public class ChatActivity extends AppCompatActivity implements TIMMessageListene
     public void Click(View view){
         switch (view.getId()){
             case R.id.imbtn_send:
+                sendMsg();
                 break;
             case R.id.img_add:
                 break;
